@@ -2,6 +2,7 @@ import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -37,7 +38,9 @@ function App() {
             Vite Docs
           </a>
         </p>
+        <p className='text-3xl font-bold underline text-black'>comprobando tailwind</p>
       </header>
+      <div className='text-sky-300 bg-slate-900'>carlos</div>
     </div>
   )
 }
