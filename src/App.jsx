@@ -1,6 +1,10 @@
 import { useState } from 'react'
+import Banner from './pages/banner';
+import Banner2 from './pages/banner2';
+import { Routes, Route, Link } from "react-router-dom";
 import logo from './logo.svg'
 import './App.css'
+
 
 
 function App() {
@@ -40,7 +44,13 @@ function App() {
         </p>
         <p className='text-3xl font-bold underline text-black'>comprobando tailwind</p>
       </header>
-      <div className='text-sky-300 bg-slate-900'>carlos</div>
+      <div className='text-3x1 text-sky-300 bg-slate-900'>carlos</div>
+      <p className="text-gray-700"><Link to='/banner'> Ruta 1</Link></p>
+      <p className="text-sky-800"><Link to='/banner2'> Ruta 2</Link></p>
+    <Routes>
+      <Route path='/banner' element={<Banner />} />
+      <Route path='/banner2' element={<Banner2/>} />
+    </Routes>
     </div>
   )
 }
