@@ -1,18 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import MyFirstComponent from './components/MyFirstComponent';
+
 
 
 ReactDOM.render(
-  <BrowserRouter>
+  <React.StrictMode>
     <App />
-    <MyFirstComponent texto='con propeyts' num={1}/>
-    <MyFirstComponent texto='segundo' num={2}/>
-    <MyFirstComponent texto='tercero' num={3} />
-  </BrowserRouter>,
+  </React.StrictMode>,
   document.getElementById('root')
 )
   
