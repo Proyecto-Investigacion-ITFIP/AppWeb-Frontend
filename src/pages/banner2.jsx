@@ -7,7 +7,8 @@ const Banner2 = () => {
   return (
     <Fragment>
       <div className="text-center">
-        <Link to="/">VOLVER</Link>
+        <Link className='p-5' to="/">VOLVER</Link>
+        <Link to="/banner">PAGTWO</Link>
       </div>
       <Sidebar2></Sidebar2>
     </Fragment>

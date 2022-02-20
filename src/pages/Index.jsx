@@ -6,11 +6,11 @@ import { Link } from "react-router-dom"
 const Index = () => {
   return (
     <Fragment>
-      <div className="text-center">
-        <Link to="/banner2">VOLVER</Link>
+      <div className="text-center p-1">
+        <Link className='p-5' to="/banner2">VOLVER</Link>
+        <Link to="/banner">PAGTWO</Link>
       </div>
-      <SidebarLayout>
-      </SidebarLayout>
+      <SidebarLayout></SidebarLayout>
     </Fragment>
   );
 }   

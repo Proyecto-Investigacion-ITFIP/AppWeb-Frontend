@@ -1,7 +1,6 @@
 import Banner from './pages/banner';
 import Banner2 from './pages/banner2';
-import MyFirstComponent from './components/MyFirstComponent';
-import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import './App.css'
 import Index from './pages/Index';
 
@@ -13,6 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/banner" element={<Banner />} />
           <Route path="/banner2" element={<Banner2 />} />
         </Routes>
       </BrowserRouter>
