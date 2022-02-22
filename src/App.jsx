@@ -1,19 +1,16 @@
 import Banner from './pages/banner';
-import Banner2 from './pages/banner2';
+import Dashboard from './pages/dashboard';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import './App.css'
-import Index from './pages/Index';
+import Index from './pages/index';
 
 
-
-function App() {
-
+function App() {  
   return (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/banner" element={<Banner />} />
-          <Route path="/banner2" element={<Banner2 />} />
         </Routes>
       </BrowserRouter>
   );

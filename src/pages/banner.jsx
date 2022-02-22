@@ -9,7 +9,7 @@ const Banner = () => {
       <div className="text-center">
         <Link to="/">VOLVER</Link>
       </div>
-      <MyFirstComponent texto='envio pro' num={3}/>
+      <MyFirstComponent texto="envio pro" num={3} />
       <Buttons />
     </div>
   );
