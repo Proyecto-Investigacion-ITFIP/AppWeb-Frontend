@@ -1,7 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import ciclista from '../img/ciclista.png'
 
 const Index = () => {
   return (
@@ -14,15 +14,17 @@ const Index = () => {
               Bienvenido a la Plataforma
               <br></br>
               <span className="text-blue-700"> CiclaMundo </span>
-              proyectos de investigación <br></br>y
-              <span className="text-blue-700"> mejora tus procesos.</span>
+              Gestiona y Controla<br></br>el procesos
+              <span className="text-blue-700"> Administrativo</span>
             </h2>
             <div className="inline-flex flex-col text-center">
               <a className="text-3xl py-4 px-8 transition rounded-md font-semibold mb-1 text-white bg-sky-900 ring-transparent focus:outline-none hover:bg-blue-900">
                 <Link to="/auth/registro">¡Registrate!</Link>
               </a>
             </div>
-            <div className="w-full md:absolute md:bottom-4 md:right-0 md:w-3/6"></div>
+            <div className="w-full md:absolute md:bottom-4 md:right-0 md:w-3/6">
+              <img className="cicla" src={ciclista}></img>
+            </div>
           </div>
         </div>
       </main>

@@ -1,20 +1,21 @@
 import semillero from '../img/semillero.png'
 import itfip from '../img/itfip.png'
 import disruptivo from '../img/disruptivo.png'
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className="flex place-content-center  bg-slate-800">
       <div className="container py-4 px-4 text-center mt-8 p-10">
         <div className="flex flex-col items-center">
-          <a id="" className="relative hover:opacity-70" href="/">
+          <Link to="/" className="relative hover:opacity-70" >
             <h1 className="text-xl font-bold text-gray-200">
               CICLA
               <span className="bg-sky-800 text-grat-200 uppercase ml-1 p-1 rounded-lg">
                 mundo
               </span>
             </h1>
-          </a>
+          </Link>
           <div className="flex items-center gap-1 mt-11 text-sm font-bold text-gray-200">
           Involucrados 
           </div>
