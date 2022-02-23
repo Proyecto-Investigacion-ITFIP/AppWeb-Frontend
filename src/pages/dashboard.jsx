@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { Fragment } from "react"
-import Sidebar2 from "../components/Sidebar2"
+import Sidebar2 from "../components/Sidebar"
 
 
 const Dashboard = () => {

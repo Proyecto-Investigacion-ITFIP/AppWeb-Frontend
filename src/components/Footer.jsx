@@ -19,12 +19,13 @@ const Footer = () => {
           <div className="flex items-center gap-1 mt-11 text-sm font-bold text-gray-200">
           Involucrados 
           </div>
-          <div className="flex items-center gap-1 mt-4 mb-10">
+          <div className="flex items-center gap-1 mt-4 mb-10 ">
             <img className="m-2 h-32" src={ semillero }></img>
             <img className="m-2 h-32" src={ itfip }></img>
             <img className="m-2 h-32" src={ disruptivo }></img>
           </div>
         </div>
+        <div className='md:flex-col'>
         <div className="flex gap-2 place-content-center">
         <span className='text-gray-200'> 
          ©️ 2022 Todos los Derechos Reservados ◽
@@ -55,10 +56,11 @@ const Footer = () => {
           >
             Enviar Sugerencia{" "}
           </a>
+          </div>
         </div>
       </div>
     </footer>
   );
-}
+} 
 
 export default Footer

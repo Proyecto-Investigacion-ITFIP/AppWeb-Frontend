@@ -14,7 +14,7 @@ const Index = () => {
               Bienvenido a la Plataforma
               <br></br>
               <span className="text-blue-700"> CiclaMundo </span>
-              Gestiona y Controla<br></br>el procesos
+              Gestiona y Controla<br></br>los procesos
               <span className="text-blue-700"> Administrativo</span>
             </h2>
             <div className="inline-flex flex-col text-center">

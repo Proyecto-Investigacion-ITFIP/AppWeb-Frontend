@@ -1,7 +1,8 @@
-import Banner from './pages/banner';
 import Dashboard from './pages/dashboard';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Index from './pages/index';
+import Forms from './pages/forms';
+import SidebarLayout from './layouts/sidebarLayout';
 
 
 function App() {  
@@ -9,8 +10,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/banner" element={<Banner />} />
+        </Routes>
+        <Routes>
+          <Route path="/dashboard" element={<SidebarLayout />}>
+          <Route path="pagina1" element={<Forms />} />
+
+          </Route>
         </Routes>
       </BrowserRouter>
   );
