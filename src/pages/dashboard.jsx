@@ -1,12 +1,10 @@
-import { Link } from "react-router-dom"
 import { Fragment } from "react"
-import Sidebar2 from "../components/Sidebar"
 
 
 const Dashboard = () => {
   return (
     <Fragment>
-      <Sidebar2 />
+      <h2 className="text-3xl flex items-center justify-center">BIENVENIDO</h2>
     </Fragment>
   );
 }

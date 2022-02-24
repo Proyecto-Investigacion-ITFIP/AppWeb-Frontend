@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 
-const Forms = () => {
+const Product = () => {
     const [ mostarTable, setMostrarTable] = useState(true)
     const [ textBotton, setTextoBotto ] = useState("Nuevo Producto")
 
@@ -16,7 +16,7 @@ const Forms = () => {
     <Fragment>
     <div className="flex flex-col h-full w-full items-center justify-start p-6">
       <div className='flex flex-col '>
-        <h2 className='text-3x1'>Administar Producto</h2>
+        <h2 className='text-3x1'>Probando PAGINA</h2>
         <button
           onClick={() => {
             setMostrarTable(!mostarTable);
@@ -78,4 +78,4 @@ const FormsProduct = () => {
     )
 }
 
-export default Forms
+export default Product
