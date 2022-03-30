@@ -43,3 +43,9 @@ table tr:nth-child(even) {
   background-color: rgba(92, 116, 253, 0.904);
   cursor: pointer;
 }
+
+@media (min-width: 1536px) {
+  .contener-cicla{
+    margin-bottom: -180px
+  }
+}   
