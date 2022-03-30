@@ -56,7 +56,7 @@ const Sidebar = () => {
                             <path d="M9 14H5C4.44772 14 4 14.4477 4 15V19C4 19.5523 4.44772 20 5 20H9C9.55228 20 10 19.5523 10 19V15C10 14.4477 9.55228 14 9 14Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             <path d="M19 14H15C14.4477 14 14 14.4477 14 15V19C14 19.5523 14.4477 20 15 20H19C19.5523 20 20 19.5523 20 19V15C20 14.4477 19.5523 14 19 14Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <Link to="/inicio">
+                        <Link to="">
                             <p className="text-base leading-4 ">Dashboard</p>
                         </Link>
                     </button>
@@ -65,7 +65,9 @@ const Sidebar = () => {
                             <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             <path d="M6 21V19C6 17.9391 6.42143 16.9217 7.17157 16.1716C7.92172 15.4214 8.93913 15 10 15H14C15.0609 15 16.0783 15.4214 16.8284 16.1716C17.5786 16.9217 18 17.9391 18 19V21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
-                        <p className="text-base leading-4 ">Users</p>
+                        <Link to="/usuarios">
+                            <p className="text-base leading-4 ">Users</p>
+                        </Link>
                     </button>
                 </div>
                 <div className="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
@@ -80,7 +82,7 @@ const Sidebar = () => {
                             <svg className="fill-stroke" width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15 10L11 14L17 20L21 4L3 11L7 13L9 19L12 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
-                            <Link to="/inicio/messeges">
+                            <Link to="/messeges">
                                 <p className="text-base leading-4  ">Messages</p>
                             </Link>
                         </button>
@@ -91,7 +93,7 @@ const Sidebar = () => {
                                 <path d="M18 5L20 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                 <path d="M15 8L17 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
-                            <Link to="/inicio/segurity">
+                            <Link to="/segurity"> 
                                 <p className="text-base leading-4  ">Security</p>
                             </Link>
                         </button>

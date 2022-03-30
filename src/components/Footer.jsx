@@ -32,7 +32,7 @@ const Footer = () => {
         </span>
           <a
             className="text-gray-600 hover:text-black dark:hover:text-white dark:text-gray-100 hover:underline"
-            href="https://midu.tube"
+            href=""
             rel="nofollow noreferrer"
             target="_blank"
           >
