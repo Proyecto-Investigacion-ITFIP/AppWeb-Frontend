@@ -13,7 +13,21 @@ const GET_USUARIOS = gql`
      estado
   }
 }
-
 `;
 
-export { GET_USUARIOS };
+const GET_USUARIO = gql `
+query QueryUsuario($_id: String!) {
+  Usuario( _id: $_id ){
+    _id
+    nombre
+    apellido
+    email
+    identificacion
+    telefono
+    rol
+    estado
+  }
+}
+`;
+
+export { GET_USUARIOS, GET_USUARIO  };

@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 import { GET_USUARIOS } from '../../graphql/usuarios/queries';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const IndexUsuarios = () => {
 const { loading, error, data } = useQuery( GET_USUARIOS );
@@ -16,7 +17,7 @@ const { loading, error, data } = useQuery( GET_USUARIOS );
     }
   },[error])
 
-  if(loading) return <di>Cargando...</di>
+  if(loading) return <div>Cargando...</div>
 
   return (
     <div>
@@ -31,6 +32,7 @@ const { loading, error, data } = useQuery( GET_USUARIOS );
             <th>telefono</th>
             <th>Rol</th>
             <th>Estado</th>
+            <th>Editar</th>
           </tr>
         </thead>
         <tbody>
@@ -45,6 +47,11 @@ const { loading, error, data } = useQuery( GET_USUARIOS );
                 <td>{u.telefono}</td>
                 <td>{u.rol}</td>
                 <td>{u.estado}</td>
+                <td>
+                  <Link to={`/usuarios/editar/${u._id}`}>
+                    <i className="fas fa-edit text-sky-900 hover:text-sky-400 cursor-pointer" />
+                  </Link>
+                </td>
               </tr>
             );
           })
