@@ -28,8 +28,6 @@ const EditarUsuarios = () => {
     });
   };
 
-  console.log(queryData)
-
   useEffect(() => {
     if (mutationData) {
       toast.success("Usuario Editado Con Exito");
