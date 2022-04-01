@@ -3,6 +3,7 @@ import { GET_USUARIOS } from '../../graphql/usuarios/queries';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import { Enum_Rol, Enum_EstadoUsuario } from '../../utils/enums';
 
 const IndexUsuarios = () => {
 const { loading, error, data } = useQuery( GET_USUARIOS );
@@ -45,8 +46,8 @@ const { loading, error, data } = useQuery( GET_USUARIOS );
                 <td>{u.email}</td>
                 <td>{u.identificacion}</td>
                 <td>{u.telefono}</td>
-                <td>{u.rol}</td>
-                <td>{u.estado}</td>
+                <td>{Enum_Rol[u.rol]}</td>
+                <td>{Enum_EstadoUsuario[u.estado]}</td>
                 <td>
                   <Link to={`/usuarios/editar/${u._id}`}>
                     <i className="fas fa-edit text-sky-900 hover:text-sky-400 cursor-pointer" />

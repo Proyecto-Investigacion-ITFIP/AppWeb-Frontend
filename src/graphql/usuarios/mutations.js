@@ -8,7 +8,7 @@ mutation EditarUsuario (
     $email: String!
     $identificacion: String!
     $telefono: String!
-    $rol: Enum_Rol!
+    $estado: Enum_EstadoUsuario!
     ) {
     editarUsuario (
         _id: $_id
@@ -17,7 +17,7 @@ mutation EditarUsuario (
         email: $email
         identificacion: $identificacion
         telefono: $telefono
-        rol: $rol
+        estado: $estado
     ) {
     _id
     nombre

@@ -5,28 +5,45 @@ import { ButtonLoading } from "../../components/ButtonLoading"
 import { useFormData } from "../../hooks/useFormData"
 import { Editar_Usuario } from "../../graphql/usuarios/mutations"
 import { useEffect } from "react";
+import { toast } from "react-toastify";
+import { DropDown } from "../../components/Dropdown";
+import {  Enum_EstadoUsuario } from "../../utils/enums";
 
 const EditarUsuarios = () => {
 
-  const { form, formData, updateFormData} = useFormData(null);
+  const { form, formData, updateFormData } = useFormData(null);
   const { _id } = useParams();
-  const { loading:queryLoading, error:queryError, data:queryData } = useQuery(GET_USUARIO, {
+  const { loading: queryLoading, error: queryError, data: queryData, } = useQuery(GET_USUARIO, {
     variables: { _id },
   });
-  const [ editarUsuario, { data:mutationData, loading:mutationLoanding, error:mutationError }] = useMutation(Editar_Usuario);
 
-  const submitForm  = (e) => {
+  const [ editarUsuario, { data: mutationData, loading: mutationLoanding, error: mutationError }, ] = useMutation(Editar_Usuario);
+
+  const submitForm = (e) => {
     e.preventDefault();
-    console.log('fb', formData);
+    // console.log('fb', formData);
+    delete formData.rol;
     editarUsuario({
-      variables: { _id, ...formData, rol:'ADMINISTRADOR'},
+      variables: { _id, ...formData },
     });
   };
 
+  console.log(queryData)
+
   useEffect(() => {
-    console.log('mutatcion adicion', mutationData);
+    if (mutationData) {
+      toast.success("Usuario Editado Con Exito");
+    }
   }, [mutationData]);
-  
+
+  useEffect(() => {
+    if (mutationError) {
+      toast.error("Error Editando el Usuario");
+    }
+    if (queryError) {
+      toast.error("Error Consultnado el Usuario");
+    }
+  }, [mutationError, queryError]);
 
   if (queryLoading) return <div>Cargando...</div>;
 
@@ -40,7 +57,7 @@ const EditarUsuarios = () => {
         onChange={updateFormData}
         ref = {form}
       >
-      <div className="container mx-auto bg-white  mt-10 rounded px-4">
+      <div className=" container mx-auto bg-white  mt-10 rounded px-4">
         <div className="xl:w-full border-b border-gray-300 py-5">
           <div className="flex w-11/12 mx-auto xl:w-full xl:mx-0 items-center">
             <p className="text-lg text-gray-800  font-bold">
@@ -130,8 +147,6 @@ const EditarUsuarios = () => {
                 />
               </div>
             </div>
-          </div>
-        </div>
         <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
         <label
           htmlFor="FirstName"
@@ -151,7 +166,7 @@ const EditarUsuarios = () => {
         <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
               <label
                 htmlFor="FirstName"
-                className="pb-2 text-sm font-bold text-gray-800 "
+                className="pb-2 text-sm font-bold text-gray-800"
               >
                 Telefono
               </label>
@@ -164,47 +179,30 @@ const EditarUsuarios = () => {
               />
             </div>
             <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-              <label
-                htmlFor="FirstName"
-                className="pb-2 text-sm font-bold text-gray-800 "
-              >
-               Rol
-              </label>
-              <input
-                type="text"
-                name="rol"
-                defaultValue={queryData.Usuario.rol}
-                required={true}
-                className="border border-gray-300 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
-              />
+              <span  className="pb-2 text-sm font-bold text-gray-800"> Rol del usuario: {queryData.Usuario.rol}</span>
             </div>
-            <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-            <label
-              htmlFor="FirstName"
-              className="pb-2 text-sm font-bold text-gray-800 "
-            >
-             Estado
-            </label>
-            <input
-              type="text"
-              name="estado"
-              defaultValue={queryData.Usuario.estado}
-              required={true}
-              className="border border-gray-300 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
-            />
-          </div>
+          <DropDown
+          label='Estado de la persona:'
+          name='estado'
+          defaultValue={queryData.Usuario.estado}
+          required={true}
+          options={Enum_EstadoUsuario}
+        />
+    
           <ButtonLoading
           disabled={Object.keys(formData).length===0}
           loading={mutationLoanding}
           text='Confirmar'
           />
-          <button className="mx-2 my-2 bg-gray-600 transition duration-150 ease-in-out hover:bg-gray-400 rounded text-white px-6 py-2 text-xs">
+          </div>  
+             </div>
+        </div>
+          </form> 
+          <button className="BtnRegresar mx-2 my-2 bg-gray-600 transition duration-150 ease-in-out hover:bg-gray-400 rounded text-white px-6 py-2 text-xs">
             <Link to="/usuarios">
               <i>Regresar</i>
             </Link>
           </button>
-      </div>  
-      </form> 
     </div>
   );
 };  

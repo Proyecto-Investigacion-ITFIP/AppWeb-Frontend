@@ -6,11 +6,11 @@ module.exports = {
   theme: {
     extend: {},
   },
-  variants:{
+  variants: {
     extend: {
       opacity: ['disabled'],
       backgroundColor: ['disabled'],
-      textColor:['disabled'],
+      textColor: ['disabled'],
     },
   },
   plugins: [],
