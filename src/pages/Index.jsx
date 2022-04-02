@@ -18,10 +18,10 @@ const Index = () => {
               <span className="text-blue-700"> Administrativo</span>
             </h2>
             <div className="inline-flex flex-col text-center">
-              <a className="text-3xl py-4 px-8 transition rounded-md font-semibold mb-1 text-white bg-sky-900 ring-transparent focus:outline-none hover:bg-blue-900">
+              <button className="text-3xl py-4 px-8 transition rounded-md font-semibold mb-1 text-white bg-sky-900 ring-transparent focus:outline-none hover:bg-blue-900">
                 <Link to="/auth/registro">¡Registrate!</Link>
-                <i class="fa-solid fa-starfighter-twin-ion-engine"></i>
-              </a>
+                <i className="fa-solid fa-starfighter-twin-ion-engine"></i>
+              </button>
             </div>
             <div className="w-full md:absolute md:bottom-4 md:right-0 md:w-3/6">
               <img className="cicla" src={ciclista}></img>

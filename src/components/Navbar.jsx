@@ -37,17 +37,17 @@ const Navbar = () => {
                             <ul className="hidden w-8/12 md:flex items-center justify-center space-x-8">
                                 <li>
                                     <a href="javascript:void(0)" className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
-                                        Home
+                                        Inicio
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0)" className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
-                                        Furniture
+                                        Nosotros
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0)" className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
-                                        Support
+                                        Soporte 
                                     </a>
                                 </li>
                             </ul>

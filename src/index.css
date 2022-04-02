@@ -10,11 +10,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+/* Index */
 .cicla{
   margin-bottom:-80px
 }
+/* Fin-index */
 
+/* tabla-pages */
 .tabla{
   width: 100%;
   margin: 10px;
@@ -43,18 +45,76 @@ table tr:nth-child(even) {
   background-color: rgba(92, 116, 253, 0.904);
   cursor: pointer;
 }
+/* Fin-tabla-pages */
 
+/* Component Input */
+.input {
+  @apply p-2 border border-indigo-200 focus:outline-none focus:border-indigo-800 rounded-md shadow-sm;
+}
+/* Fin-Component Input */
+
+.BtnRegresar{
+  margin-left: 340px;
+}
+
+ /* Iniciar session */
+ .split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+/* FIN-Iniciar session */
+
+/* pagina-registrace */
+.registro-input{
+  background-color: transparent;
+    border-left: 0px;
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom: 2px solid #ffff;
+    font-size: 16px;
+    font-family: 'Muli', sans-serif;
+    margin-bottom: 20px;
+    padding: 0px 20px;
+    outline: none;
+    height: 50px;
+}
+
+.registro-input::placeholder { color: #ffff; }
+/* Fin-pagina-registrace */
+
+/* Responsi */
 @media (min-width: 1536px) {
   .contener-cicla{
     margin-bottom: -180px
   }
 }   
-
-
-.input {
-  @apply p-2 border border-indigo-200 focus:outline-none focus:border-indigo-800 rounded-md shadow-sm;
-}
-
-.BtnRegresar{
-  margin-left: 340px;
-}
