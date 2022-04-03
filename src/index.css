@@ -10,6 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 /* Index */
 .cicla{
   margin-bottom:-80px
@@ -107,6 +108,8 @@ table tr:nth-child(even) {
     padding: 0px 20px;
     outline: none;
     height: 50px;
+    width: 340px;
+    color: white;
 }
 
 .registro-input::placeholder { color: #ffff; }

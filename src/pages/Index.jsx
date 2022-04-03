@@ -19,7 +19,9 @@ const Index = () => {
             </h2>
             <div className="inline-flex flex-col text-center">
               <button className="text-3xl py-4 px-8 transition rounded-md font-semibold mb-1 text-white bg-sky-900 ring-transparent focus:outline-none hover:bg-blue-900">
-                <Link to="/auth/registro">¡Registrate!</Link>
+                <Link to="/auth/registro">
+                  ¡Registrate!
+                </Link>
                 <i className="fa-solid fa-starfighter-twin-ion-engine"></i>
               </button>
             </div>

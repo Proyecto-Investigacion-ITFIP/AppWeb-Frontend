@@ -48,7 +48,7 @@ const EditarUsuarios = () => {
   return (
     <div className="flew flex-col w-full h-full items-center justify-center p-10">
       <Link to="/usuarios">
-        <i className="fas fa-arrow-left cursor-pointer font-bold text-xl hover:text-blue-800"> Regresar</i>
+        <i className="fas fa-arrow-left mt-12 cursor-pointer font-bold text-xl hover:text-blue-800"> Regresar</i>
       </Link>
       <form className="flex flex-col items-center justify-center"
         onSubmit={submitForm}
