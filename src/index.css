@@ -112,6 +112,10 @@ table tr:nth-child(even) {
     color: white;
 }
 
+.registro-input option{
+  color: black;
+}
+
 .registro-input::placeholder { color: #ffff; }
 /* Fin-pagina-registrace */
 

@@ -11,6 +11,19 @@ const ButtonLoading = ({ disabled, loading, text }) => {
     { loading ? <ReactLoading type='spin' height={24} width={24} /> : text }
     </button>
   );
+};
+
+const ButtonLoadingRg= ({ disabled, loading, text }) => {
+  return (
+    <button
+    disabled={disabled}
+    type='submit'
+    className='bg-transparent hover:bg-sky-800 text-gray-100 font-semibold hover:text-white m-4 py-2 px-16 border rounded-full  border-gray-100 hover:border-transparent'
+    >
+    { loading ? <ReactLoading type='spin' height={24} width={24} /> : text }
+    </button>
+  );
 }
 
-export { ButtonLoading };
+
+export { ButtonLoading, ButtonLoadingRg };
