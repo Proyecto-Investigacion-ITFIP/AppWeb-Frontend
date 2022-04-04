@@ -7,12 +7,14 @@ import { useMutation } from '@apollo/client';
 import { REGISTRO } from '../../graphql/auth/mutation';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import { userAuth } from '../../context/authContext';
 
 
 const Registro = () => {
+  const { setToken } = userAuth()
   const navigate = useNavigate();
   const { form, formData, updateFormData } = useFormData();
-  const [ registro, { data: mutationData, loading: mutationLoanding, error: mutationError }, ] = useMutation(REGISTRO);
+  const [ registro, { data: mutationData, loading: mutationLoading, error: mutationError }, ] = useMutation(REGISTRO);
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -24,11 +26,11 @@ const Registro = () => {
     // console.log('data mutation', mutationData)
     if(mutationData){
       if(mutationData.registro.token){
-        localStorage.setItem('token', mutationData.registro.token); 
+        setToken(mutationData.registro.token); 
         navigate('/');
       }
     }
-  }, [mutationData])
+  }, [mutationData, setToken, navigate])
   
   return (
     <div className="bg-sky-900">
@@ -38,7 +40,12 @@ const Registro = () => {
           Regresar
         </i>
       </Link>
-      <form className='' onSubmit={ submitForm } onChange={updateFormData} ref={form} >
+      <form
+        className=""
+        onSubmit={submitForm}
+        onChange={updateFormData}
+        ref={form}
+      >
         <div className="bg-color flex flex-col items-center">
           <section className="flex flex-col border-2  border-gray-100 rounded-3xl p-20 m-8">
             <h4 className="flex justify-center p-2  text-2xl text-gray-100">
@@ -102,25 +109,28 @@ const Registro = () => {
                 placeholder="Contraseña"
                 required
               />
-            </label>  
+            </label>
 
-            <DropDownRg   
-            name='rol'
-            required={true}
-            options={Enum_Rol}
-            />
+            <DropDownRg name="rol" required={true} options={Enum_Rol} />
 
             <div className="flex flex-col justify-around">
               <ButtonLoadingRg
                 disabled={Object.keys(formData).length === 0}
                 loading={false}
-                text='Registrarme'
-               />
-              <Link to="/auth/index" className="flex justify-center">
-                <span className="text-sm text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
-                   {"👈"} Regresar
-                </span>
-              </Link>
+                text="Registrarme"
+              />
+              <div className="flex flex-col justify-center items-center">
+                <Link to="/auth/inicar-sesion" className="">
+                  <span className="m-1 text-sm text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
+                    {""} Iniciar Sesion
+                  </span>
+                </Link>
+                <Link to="/auth/index" className="">
+                  <span className="m-1 text-sm text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
+                    {""} Regresar
+                  </span>
+                </Link>
+              </div>
             </div>
           </section>
         </div>

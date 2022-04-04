@@ -25,8 +25,30 @@ const REGISTRO = gql`
   }
 `;
 
+const LOGIN = gql`
+  mutation Login(
+    $email: String!,
+    $contrasena: String!
+  ) {
+  login(
+    email: $email, 
+    contrasena: $contrasena
+    ) {
+    token
+    error
+  }
+}
+`;
 
 
+const VALIDAR_TOKEN = gql`
+mutation ValidarToken {
+  validarToken {
+    token
+    error
+  }
+}
+`;
 
 
-export { REGISTRO };
+export { REGISTRO, LOGIN, VALIDAR_TOKEN };

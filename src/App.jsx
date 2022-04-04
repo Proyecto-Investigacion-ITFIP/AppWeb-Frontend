@@ -6,22 +6,51 @@ import Dashboard from "./pages/dashboard";
 import SidebarLayout from './layouts/sidebarLayout';
 import IndexUsuarios from './pages/usuarios/Usuarios'
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client'
+import { setContext } from '@apollo/client/link/context';
 import EditarUsuarios from "./pages/usuarios/editarUsuarios";
 import IniciarSesion from "./pages/autentificacion/iniciar-sesion";
 import Registro from "./pages/autentificacion/registro";
+import { AuthContext } from "./context/authContext";
+import { useState } from "react";
 
-// const httpLink = createHttpLink({
-//   uri:'https://maestro-producto-back.herokuapp.com/graphql'
-// });
+const httpLink = createHttpLink({
+  // uri:'https://maestro-producto-back.herokuapp.com/graphql'
+  uri: 'http://localhost:4000/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = JSON.parse(localStorage.getItem('token'));
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+}); 
 
 const client = new ApolloClient({
-    uri: 'http://localhost:4000/graphql',
-    cache: new InMemoryCache(),
+  cache: new InMemoryCache(),
+  link: authLink.concat(httpLink),
 });
 
 function App() {  
+
+  //crear estado global Recibir token
+  const [authToken, setAuthToken] = useState('');
+
+  const setToken = (token) => {
+    setAuthToken(token)
+    if(token){
+      // convertir el token en Strin: JSON.stringify
+      localStorage.setItem('token', JSON.stringify(token));
+    }
+  };
+
   return (
     <ApolloProvider client={client}>
+      <AuthContext.Provider value={{ authToken, setAuthToken, setToken }}>
       <BrowserRouter>
         <Routes>
             <Route path="/auth/index" element={<Index />} />
@@ -38,6 +67,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      </AuthContext.Provider>
     </ApolloProvider>
   );
 }
