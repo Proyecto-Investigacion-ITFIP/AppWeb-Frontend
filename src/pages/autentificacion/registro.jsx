@@ -120,7 +120,7 @@ const Registro = () => {
                 text="Registrarme"
               />
               <div className="flex flex-col justify-center items-center">
-                <Link to="/auth/inicar-sesion" className="">
+                <Link to="/auth/iniciar-sesion" className="">
                   <span className="m-1 text-sm text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline">
                     {""} Iniciar Sesion
                   </span>

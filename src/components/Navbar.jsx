@@ -20,7 +20,7 @@ const Navbar = () => {
               <div className="flex items-center space-x-3 text-gray-800 dark:text-white"></div>
               <div className="space-x-6">
                 <button className=" bg-gray-200 transition duration-150 ease-in-out hover:bg-gray-100 hover:border-indigo-600 hover:text-indigo-600 rounded border-2 border-indigo-700 text-indigo-700 px-6 py-2 text-2x1">
-                  <Link to="/auth/inicar-sesion">Inicar sesión</Link>
+                  <Link to="/auth/iniciar-sesion">Iniciar sesión</Link>
                 </button>
               </div>
             </div>
@@ -79,7 +79,7 @@ const Navbar = () => {
                 <div className="md:w-2/12 justify-end flex items-center space-x-4 xl:space-x-8">
                   <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
                     <button className=" bg-gray-200 transition duration-150 ease-in-out hover:bg-gray-100 hover:border-indigo-600 hover:text-indigo-600 rounded border-2 border-indigo-700 text-indigo-700 px-6 py-2 text-2x1">
-                      <Link to="/auth/inicar-sesion">Inicar sesión</Link>
+                      <Link to="/auth/iniciar-sesion">Iniciar Sesión</Link>
                     </button>
                   </div>
                   <div className="flex lg:hidden">
@@ -340,7 +340,7 @@ const Navbar = () => {
                 <ul className="flex flex-col space-y-8 bg-gray-50 w-full py-10 p-4 dark:bg-gray-800">
                   <li>
                     <button className=" bg-gray-200 transition duration-150 ease-in-out hover:bg-gray-100 hover:border-indigo-600 hover:text-indigo-600 rounded border-2 border-indigo-700 text-indigo-700 px-6 py-2 text-2x1">
-                      <Link to="/auth/inicar-sesion">Inicar sesión</Link>
+                      <Link to="/auth/iniciar-sesion">Iniciar Sesión</Link>
                     </button>
                   </li>
                 </ul>

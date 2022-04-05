@@ -19,6 +19,7 @@ const IniciarSesion = () => {
     });
   };
 
+  //recibir token del back(mutationData) y coloca a inicio pages
   useEffect(() => {
     // console.log('datos mutacion', mutationData);
     if(mutationData){

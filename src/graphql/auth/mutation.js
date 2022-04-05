@@ -41,9 +41,9 @@ const LOGIN = gql`
 `;
 
 
-const VALIDAR_TOKEN = gql`
-mutation ValidarToken {
-  validarToken {
+const REFRESCAR_TOKEN = gql`
+mutation RefrescarToken {
+  refrescarToken {
     token
     error
   }
@@ -51,4 +51,4 @@ mutation ValidarToken {
 `;
 
 
-export { REGISTRO, LOGIN, VALIDAR_TOKEN };
+export { REGISTRO, LOGIN, REFRESCAR_TOKEN };

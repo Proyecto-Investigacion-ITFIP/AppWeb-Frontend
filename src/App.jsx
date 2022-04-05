@@ -18,6 +18,8 @@ const httpLink = createHttpLink({
   uri: 'http://localhost:4000/graphql',
 });
 
+//cada vez que Graphql haga un request al back:
+// guardar el token en el headers 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
   const token = JSON.parse(localStorage.getItem('token'));
@@ -45,6 +47,8 @@ function App() {
     if(token){
       // convertir el token en Strin: JSON.stringify
       localStorage.setItem('token', JSON.stringify(token));
+    }else{
+      localStorage.removeItem('token')
     }
   };
 
@@ -54,7 +58,7 @@ function App() {
       <BrowserRouter>
         <Routes>
             <Route path="/auth/index" element={<Index />} />
-            <Route path="/auth/inicar-sesion" element={<IniciarSesion />} />
+            <Route path="/auth/iniciar-sesion" element={<IniciarSesion />} />
             <Route path="/auth/registro" element={<Registro />} />
         </Routes>
         <Routes>
