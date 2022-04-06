@@ -11,7 +11,10 @@ import EditarUsuarios from "./pages/usuarios/editarUsuarios";
 import IniciarSesion from "./pages/autentificacion/iniciar-sesion";
 import Registro from "./pages/autentificacion/registro";
 import { AuthContext } from "./context/authContext";
-import { useState } from "react";
+import { UserContext } from "./context/userContext";
+import { useState, useEffect } from "react";
+import jwt_decode  from "jwt-decode";
+
 
 const httpLink = createHttpLink({
   // uri:'https://maestro-producto-back.herokuapp.com/graphql'
@@ -39,6 +42,7 @@ const client = new ApolloClient({
 
 function App() {  
 
+  const [usuarioData, setUsuarioData] = useState({});
   //crear estado global Recibir token
   const [authToken, setAuthToken] = useState('');
 
@@ -52,25 +56,45 @@ function App() {
     }
   };
 
+  useEffect(() => {
+    console.log('token effect', authToken );
+    // console.log('token Decoded', jwt_decode(authToken));
+    if(authToken){
+      const decoded = jwt_decode(authToken);
+      console.log(decoded);
+      setUsuarioData({
+        _id: decoded._id,
+        nombre: decoded.nombre,
+        apellido: decoded.apellido,
+        email: decoded.email,
+        identificacion: decoded.identificacion,
+        telefono: decoded.telefono,
+        rol: decoded.rol
+      }); 
+    } 
+  }, [authToken]);
+
   return (
     <ApolloProvider client={client}>
       <AuthContext.Provider value={{ authToken, setAuthToken, setToken }}>
-      <BrowserRouter>
-        <Routes>
-            <Route path="/auth/index" element={<Index />} />
-            <Route path="/auth/iniciar-sesion" element={<IniciarSesion />} />
-            <Route path="/auth/registro" element={<Registro />} />
-        </Routes>
-        <Routes>
-          <Route path="/" element={<SidebarLayout />}>
-            <Route path="" element={<Dashboard />} />
-            <Route path="/usuarios" element={<IndexUsuarios />} />
-            <Route path="/usuarios/editar/:_id" element={<EditarUsuarios />} />
-            <Route path="/messeges" element={<Forms />} />
-            <Route path="/segurity" element={<Product />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+        <UserContext.Provider value={{ usuarioData, setUsuarioData }}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/auth/index" element={<Index />} />
+              <Route path="/auth/iniciar-sesion" element={<IniciarSesion />} />
+              <Route path="/auth/registro" element={<Registro />} />
+            </Routes>
+            <Routes>
+              <Route path="/" element={<SidebarLayout />}>
+                <Route path="" element={<Dashboard />} />
+                <Route path="/usuarios" element={<IndexUsuarios />} />
+                <Route path="/usuarios/editar/:_id" element={<EditarUsuarios />} />
+                <Route path="/messeges" element={<Forms />} />
+                <Route path="/segurity" element={<Product />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </UserContext.Provider>
       </AuthContext.Provider>
     </ApolloProvider>
   );
