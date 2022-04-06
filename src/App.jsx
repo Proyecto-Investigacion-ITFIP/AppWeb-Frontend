@@ -14,6 +14,7 @@ import { AuthContext } from "./context/authContext";
 import { UserContext } from "./context/userContext";
 import { useState, useEffect } from "react";
 import jwt_decode  from "jwt-decode";
+import Clientes from './pages/usuarios/clientes'
 
 
 const httpLink = createHttpLink({
@@ -89,6 +90,7 @@ function App() {
                 <Route path="" element={<Dashboard />} />
                 <Route path="/usuarios" element={<IndexUsuarios />} />
                 <Route path="/usuarios/editar/:_id" element={<EditarUsuarios />} />
+                <Route path="/clientes" element={<Clientes />} />
                 <Route path="/messeges" element={<Forms />} />
                 <Route path="/segurity" element={<Product />} />
               </Route>

@@ -3,7 +3,6 @@ import React from 'react';
 
 const PrivateRoute = ({ roleList, children }) => {
   const { usuarioData } = useUser();
-  console.log('data', usuarioData)
   if (roleList.includes(usuarioData.rol)) {
     return children;
   }

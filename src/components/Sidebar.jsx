@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { userAuth } from "../context/authContext";
+import PrivateComponent from "./PrivateComponent";
+
 
 const Sidebar = () => {
 
@@ -148,7 +150,7 @@ const Sidebar = () => {
             </Link>
           </div>
           <div className="mt-6 flex flex-col justify-start items-center  pl-4 w-full border-gray-600 border-b space-y-3 pb-5 ">
-            <button className="flex jusitfy-start items-center space-x-6 w-full  focus:outline-none  focus:text-indigo-400  text-white rounded ">
+            <button className="flex jusitfy-start items-center space-x-6 w-full hover:text-indigo-300 focus:outline-none  focus:text-indigo-400  text-white rounded ">
               <svg
                 className="fill-stroke "
                 width={24}
@@ -186,11 +188,12 @@ const Sidebar = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <Link to="">
-                <p className="text-base leading-4 ">Dashboard</p>
+              <Link to="" className="focus:text-indigo-400">
+                <p className="text-base leading-4">Dashboard</p>
               </Link>
             </button>
-            <button className="flex jusitfy-start items-center w-full  space-x-6 focus:outline-none text-white focus:text-indigo-400   rounded ">
+            <PrivateComponent roleList={['ADMINISTRADOR']}>
+            <button className="flex jusitfy-start items-center w-full hover:text-indigo-300 space-x-6 focus:outline-none text-white focus:text-indigo-400   rounded ">
               <svg
                 className="fill-stroke"
                 width={24}
@@ -214,10 +217,39 @@ const Sidebar = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <Link to="/usuarios">
+              <Link to="/usuarios"  className="focus:text-indigo-400">
                 <p className="text-base leading-4 ">Usuarios</p>
               </Link>
             </button>
+            </PrivateComponent>
+            <button className="flex jusitfy-start items-center w-full  space-x-6 focus:outline-none text-white focus:text-indigo-400 rounded hover:text-indigo-300">
+            <svg
+              className="fill-stroke"
+              width={24}
+              height={24}
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M6 21V19C6 17.9391 6.42143 16.9217 7.17157 16.1716C7.92172 15.4214 8.93913 15 10 15H14C15.0609 15 16.0783 15.4214 16.8284 16.1716C17.5786 16.9217 18 17.9391 18 19V21"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <Link to="/clientes"  className="focus:text-indigo-400">
+              <p className="text-base leading-4 ">Clientes</p>
+            </Link>
+          </button>
           </div>
           <div className="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
             <button
