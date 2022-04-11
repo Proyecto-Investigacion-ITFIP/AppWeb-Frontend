@@ -14,7 +14,7 @@ import { AuthContext } from "./context/authContext";
 import { UserContext } from "./context/userContext";
 import { useState, useEffect } from "react";
 import jwt_decode  from "jwt-decode";
-import Clientes from './pages/usuarios/clientes'
+import Clientes from "./pages/cliente/Cliente";
 
 
 const httpLink = createHttpLink({

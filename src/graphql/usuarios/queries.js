@@ -30,17 +30,4 @@ query QueryUsuario($_id: String!) {
 }
 `;
 
-const GET_CLIENTES = gql `
-query Clientes {
-  Clientes {
-    _id
-    apellido
-    nombre
-    email
-    identificacion
-    telefono
-    rol
-  }
-}
-`;
-export { GET_USUARIOS, GET_USUARIO, GET_CLIENTES  };
+export { GET_USUARIOS, GET_USUARIO };

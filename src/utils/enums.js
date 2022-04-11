@@ -1,7 +1,6 @@
 const Enum_Rol = {
   ADMINISTRADOR: 'Administrador',
   USUARIO_CAJA: 'Usuario caja',
-  CLIENTE: 'Cliente', 
 };
 
 
