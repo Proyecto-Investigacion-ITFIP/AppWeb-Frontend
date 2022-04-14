@@ -126,7 +126,9 @@ table tr:nth-child(even) {
   }
 }   
 
-
+.post-img-cicla{
+  margin-top: -7px;
+}
 /* estilo de la pagina bienvenidos */
 
 /* FIN estilo de la pagina bienvenidos */

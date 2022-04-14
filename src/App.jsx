@@ -15,6 +15,8 @@ import { UserContext } from "./context/userContext";
 import { useState, useEffect } from "react";
 import jwt_decode  from "jwt-decode";
 import Clientes from "./pages/cliente/Cliente";
+import CrearCliente from "./pages/cliente/crearCliente"
+import PostRegistro from "./pages/postRegistro";
 
 
 const httpLink = createHttpLink({
@@ -84,6 +86,7 @@ function App() {
               <Route path="/auth/index" element={<Index />} />
               <Route path="/auth/iniciar-sesion" element={<IniciarSesion />} />
               <Route path="/auth/registro" element={<Registro />} />
+              <Route path="/registro-completado" element={<PostRegistro /> } />
             </Routes>
             <Routes>
               <Route path="/" element={<SidebarLayout />}>
@@ -91,6 +94,7 @@ function App() {
                 <Route path="/usuarios" element={<IndexUsuarios />} />
                 <Route path="/usuarios/editar/:_id" element={<EditarUsuarios />} />
                 <Route path="/clientes" element={<Clientes />} />
+                <Route path="/nuevo-cliente" element={<CrearCliente />} />
                 <Route path="/messeges" element={<Forms />} />
                 <Route path="/segurity" element={<Product />} />
               </Route>

@@ -3,7 +3,7 @@ import { GET_CLIENTES } from '../../graphql/clientes/queries';
 import { useEffect, Fragment } from 'react';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import { ButtonLoading } from "../../components/ButtonLoading"
+
 
 
 
@@ -24,9 +24,15 @@ const Clientes = () => {
 
   return (
     <div>
+      <div className='flex justify-end mr-9 mt-6'>
+      <button className="mx-2 my-2 bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-6 py-2 text-xs">
+        <Link to="/nuevo-cliente">
+          Nuevo Cliente
+        </Link> 
+      </button>
+      </div>
     
-
-     DATOS CLIENTES:
+      <h3>DATOS CLIENTES:</h3>
       <table className='tabla'>
         <thead>
           <tr>
