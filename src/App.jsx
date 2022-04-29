@@ -1,10 +1,9 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Index from './pages/index';
-import Forms from './pages/forms';
 import Product from './pages/product'
 import Dashboard from "./pages/dashboard";
 import SidebarLayout from './layouts/sidebarLayout';
-import IndexUsuarios from './pages/usuarios/Usuarios'
+import IndexUsuarios from './pages/usuarios/usuarios'
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client'
 import { setContext } from '@apollo/client/link/context';
 import EditarUsuarios from "./pages/usuarios/editarUsuarios";
@@ -14,8 +13,9 @@ import { AuthContext } from "./context/authContext";
 import { UserContext } from "./context/userContext";
 import { useState, useEffect } from "react";
 import jwt_decode  from "jwt-decode";
-import Clientes from "./pages/cliente/Cliente";
+import Clientes from "./pages/cliente/cliente";
 import CrearCliente from "./pages/cliente/crearCliente"
+import EditarClientes from "./pages/cliente/editarCliente"
 import PostRegistro from "./pages/postRegistro";
 
 
@@ -94,8 +94,8 @@ function App() {
                 <Route path="/usuarios" element={<IndexUsuarios />} />
                 <Route path="/usuarios/editar/:_id" element={<EditarUsuarios />} />
                 <Route path="/clientes" element={<Clientes />} />
+                <Route path="/clientes/editar/:_id" element={<EditarClientes />} />
                 <Route path="/nuevo-cliente" element={<CrearCliente />} />
-                <Route path="/messeges" element={<Forms />} />
                 <Route path="/segurity" element={<Product />} />
               </Route>
             </Routes>

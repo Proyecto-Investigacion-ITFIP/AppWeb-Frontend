@@ -19,7 +19,7 @@ const PostRegistro = () => {
                 </h2>
                 <p className="text-base md:text-lg lg:text-xl text-center text-gray-600 font-normal xl:w-10/12 xl:mx-auto">
                 Porfavor espera a que un Adminitrador valide tus datos esto puede tardar unos minutos. 
-                O comunicate con uno via WhatsApp para confirmar tú registro <br/> <br/>
+                O comunicate con uno via WhatsApp para confirmar tú registro y agilizar el proceso<br/> <br/>
                 <span>Luego vuelve e  </span>
                 <Link to="/auth/iniciar-sesion" className='underline text-blue-800 hover:text-blue-700'>
                   Iniciar Sesión  

@@ -1,24 +1,25 @@
 import { useParams, Link } from "react-router-dom";
 import { useMutation, useQuery } from "@apollo/client";
-import { GET_USUARIO } from "../../graphql/usuarios/queries";
+import { GET_CLIENTE } from "../../graphql/clientes/queries";
 import { ButtonLoading } from "../../components/ButtonLoading";
 import { useFormData } from "../../hooks/useFormData";
-import { Editar_Usuario } from "../../graphql/usuarios/mutations";
+import { Editar_Cliete } from "../../graphql/clientes/mutations";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
-import { DropDown } from "../../components/Dropdown";
-import { Enum_EstadoUsuario } from "../../utils/enums";
 
-const EditarUsuarios = () => {
+
+
+const EditarClientes = () => {
   const { form, formData, updateFormData } = useFormData(null);
   const { _id } = useParams();
   const {
     loading: queryLoading,
     error: queryError,
     data: queryData,
-  } = useQuery(GET_USUARIO, {
+  } = useQuery(GET_CLIENTE, {
     variables: { _id },
   });
+
   useEffect(() => {
     console.log("data query",queryData)
   }, [queryData]);
@@ -26,15 +27,14 @@ const EditarUsuarios = () => {
     console.log("formData",formData)
   }, [formData]);
   const [
-    editarUsuario,
+    editarCliente,
     { data: mutationData, loading: mutationLoanding, error: mutationError },
-  ] = useMutation(Editar_Usuario);
+  ] = useMutation(Editar_Cliete);
 
   const submitForm = (e) => {
     e.preventDefault();
-    // console.log('fb', formData);
-    delete formData.rol;
-    editarUsuario({
+    console.log('fb', formData);
+    editarCliente({
       variables: { _id, ...formData },
     });
   };
@@ -58,7 +58,7 @@ const EditarUsuarios = () => {
 
   return (
     <div className="flew flex-col w-full h-full items-center justify-center p-10">
-      <Link to="/usuarios">
+      <Link to="/clientes">
         <i className="fas fa-arrow-left mt-12 cursor-pointer font-bold text-xl hover:text-blue-800">
           {" "}
           Regresar
@@ -74,7 +74,7 @@ const EditarUsuarios = () => {
           <div className="xl:w-full border-b border-gray-300 py-5">
             <div className="flex w-11/12 mx-auto xl:w-full xl:mx-0 items-center">
               <p className="text-lg text-gray-800  font-bold">
-                Editar Informacion Usuario
+                Editar Informacion Cliente
               </p>
               <div className="ml-2 cursor-pointer text-black">
                 <svg
@@ -104,7 +104,7 @@ const EditarUsuarios = () => {
                 <input
                   type="text"
                   name="nombre"
-                  defaultValue={queryData.Usuario.nombre}
+                  defaultValue={queryData.Cliente.nombre}
                   required={true}
                   className="border border-gray-300  pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
                 />
@@ -119,7 +119,7 @@ const EditarUsuarios = () => {
                 <input
                   type="text"
                   name="apellido"
-                  defaultValue={queryData.Usuario.apellido}
+                  defaultValue={queryData.Cliente.apellido}
                   required={true}
                   className="border border-gray-300 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
                 />
@@ -153,7 +153,7 @@ const EditarUsuarios = () => {
                   <input
                     type="email"
                     name="email"
-                    defaultValue={queryData.Usuario.email}
+                    defaultValue={queryData.Cliente.email}
                     required={true}
                     className="pl-3 py-3 w-full text-sm focus:outline-none placeholder-gray-500 rounded bg-transparent text-gray-500 "
                   />
@@ -169,7 +169,7 @@ const EditarUsuarios = () => {
                 <input
                   type="text"
                   name="identificacion"
-                  defaultValue={queryData.Usuario.identificacion}
+                  defaultValue={queryData.Cliente.identificacion}
                   required={true}
                   className="border border-gray-300 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
                 />
@@ -185,24 +185,42 @@ const EditarUsuarios = () => {
                 <input
                   type="text"
                   name="telefono"
-                  defaultValue={queryData.Usuario.telefono}
+                  defaultValue={queryData.Cliente.telefono}
                   required={true}
                   className="border border-gray-300  pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
                 />
               </div>
               <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-                <span className="mt-8 p-2 pb-2 text-sm font-bold text-gray-800">
-                  Rol del usuario: {queryData.Usuario.rol}
-                </span>
+                <label
+                  htmlFor="FirstName"
+                  className="pb-2 text-sm font-bold text-gray-800"
+                >
+                Departamento
+                </label>
+                <input
+                  type="text"
+                  name="departamento"
+                  defaultValue={queryData.Cliente.departamento}
+                  required={true}
+                  className="border border-gray-300  pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
+                />
               </div>
-              <DropDown
-                label="Estado de la persona:"
-                name="estado"
-                defaultValue={queryData.Usuario.estado}
-                required={true}
-                options={Enum_EstadoUsuario}
-              />
-              <div></div>
+              <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
+                <label
+                  htmlFor="FirstName"
+                  className="pb-2 text-sm font-bold text-gray-800"
+                >
+                Ciudad
+                </label>
+                <input
+                  type="text"
+                  name="ciudad"
+                  defaultValue={queryData.Cliente.ciudad}
+                  required={true}
+                  className="border border-gray-300  pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
+                />
+              </div>
+              
             </div>
             <ButtonLoading
               disabled={Object.keys(formData).length === 0}
@@ -213,7 +231,7 @@ const EditarUsuarios = () => {
         </div>
       </form>
       <button className="BtnRegresar mx-2 my-2 bg-gray-600 transition duration-150 ease-in-out hover:bg-gray-400 rounded text-white px-12 py-2 text-xs">
-        <Link to="/usuarios">
+        <Link to="/clientes">
           <i>Regresar</i>
         </Link>
       </button>
@@ -221,4 +239,4 @@ const EditarUsuarios = () => {
   );
 };
 
-export default EditarUsuarios;
+export default EditarClientes;

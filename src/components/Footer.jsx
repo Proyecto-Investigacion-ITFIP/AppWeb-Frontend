@@ -9,12 +9,12 @@ const Footer = () => {
       <div className="container py-4 px-4 text-center mt-8 p-10">
         <div className="flex flex-col items-center">
           <Link to="/" className="relative hover:opacity-70" >
-            <h1 className="text-xl font-bold text-gray-200">
+            <h2 className="text-xl font-bold text-gray-200">
               CICLA
               <span className="bg-sky-800 text-grat-200 uppercase ml-1 p-1 rounded-lg">
                 mundo
               </span>
-            </h1>
+            </h2>
           </Link>
           <div className="flex items-center gap-1 mt-11 text-sm font-bold text-gray-200">
           Involucrados 
@@ -27,9 +27,6 @@ const Footer = () => {
         </div>
         <div className='md:flex-col'>
         <div className="flex gap-2 place-content-center">
-        <span className='text-gray-200'> 
-         ©️ 2022 Todos los Derechos Reservados ◽
-        </span>
           <a
             className="text-gray-600 hover:text-black dark:hover:text-white dark:text-gray-100 hover:underline"
             href=""

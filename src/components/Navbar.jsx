@@ -28,10 +28,12 @@ const Navbar = () => {
             {/* For large screens */}
             <div className="dark:bg-gray-900 bg-gray-50 px-6 py-9">
               <div className="container mx-auto flex items-center justify-between">
-                <h1
+                <h2
                   className="md:w-2/12 cursor-pointer text-gray-800 dark:text-white"
                   aria-label="CiclaMundo"
                 >
+                <Link
+                to="/auth/index">
                   <svg
                     className="fill-stroke"
                     width={93}
@@ -49,7 +51,8 @@ const Navbar = () => {
                       fill="currentColor"
                     />
                   </svg>
-                </h1>
+                  </Link>
+                </h2>
                 <ul className="hidden w-8/12 md:flex items-center justify-center space-x-8">
                   <li>
                     <Link

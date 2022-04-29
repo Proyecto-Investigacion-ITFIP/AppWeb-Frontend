@@ -5,8 +5,6 @@ import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 
 
-
-
 const Clientes = () => {
   const { loading, error, data } = useQuery(GET_CLIENTES);
 
@@ -25,7 +23,7 @@ const Clientes = () => {
   return (
     <div>
       <div className='flex justify-end mr-9 mt-6'>
-      <button className="mx-2 my-2 bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-6 py-2 text-xs">
+      <button className="mx-2 my-2 bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-3 text-xs">
         <Link to="/nuevo-cliente">
           Nuevo Cliente
         </Link> 
@@ -59,7 +57,7 @@ const Clientes = () => {
                 <td>{u.departamento}</td>
                 <td>{u.ciudad}</td>
                 <td>
-                  <Link to={`/usuarios/editar/${u._id}`}>
+                  <Link to={`/clientes/editar/${u._id}`}>
                     <i className="fas fa-edit text-sky-900 hover:text-sky-400 cursor-pointer" />
                   </Link>
                 </td>

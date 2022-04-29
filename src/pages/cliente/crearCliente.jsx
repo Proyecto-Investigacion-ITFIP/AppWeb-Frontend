@@ -5,7 +5,6 @@ import { useMutation, useQuery } from "@apollo/client";
 
 const CrearCliente = () => {
 
-
   return (
     <div className="flew flex-col w-full h-full items-center justify-center p-6">
       <Link to="/clientes">
@@ -35,7 +34,7 @@ const CrearCliente = () => {
             </div>
           </div>
           <div className="mx-auto pt-4">
-            <div className="container mx-auto grid grid-cols-2">
+            <div className="container mx-auto grid grid-cols-2">  
               <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
                 <label
                   htmlFor="FirstName"
