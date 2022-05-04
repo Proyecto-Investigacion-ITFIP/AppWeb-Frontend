@@ -7,8 +7,6 @@ import { Editar_Cliete } from "../../graphql/clientes/mutations";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 
-
-
 const EditarClientes = () => {
   const { form, formData, updateFormData } = useFormData(null);
   const { _id } = useParams();

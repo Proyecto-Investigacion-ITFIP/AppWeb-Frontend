@@ -19,12 +19,7 @@ const EditarUsuarios = () => {
   } = useQuery(GET_USUARIO, {
     variables: { _id },
   });
-  useEffect(() => {
-    console.log("data query",queryData)
-  }, [queryData]);
-  useEffect(() => {
-    console.log("formData",formData)
-  }, [formData]);
+ 
   const [
     editarUsuario,
     { data: mutationData, loading: mutationLoanding, error: mutationError },

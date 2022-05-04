@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { GET_CLIENTES } from '../../graphql/clientes/queries';
-import { useEffect, Fragment } from 'react';
+import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 

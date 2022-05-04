@@ -1,9 +1,38 @@
-import { useParams, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { Crear_Cliete } from "../../graphql/clientes/mutations"
 import { useFormData } from "../../hooks/useFormData";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
+import { ButtonLoading } from '../../components/ButtonLoading';
+import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 const CrearCliente = () => {
+  const { form, formData, updateFormData } = useFormData();
+  const [
+    registroCliente,
+    { data: mutationData, loading: mutationLoading, error: mutationError },
+  ] = useMutation(Crear_Cliete);
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    console.log('DATOS', formData)
+    registroCliente({ variables: formData })
+  }
+  console.log("datoFormu",formData)
+
+  useEffect(() => {
+    if (mutationData) {
+      toast.success("Cliente Creado Con Exito");
+    }
+  }, [mutationData]);
+
+  useEffect(() => {
+    if (mutationError) {
+      toast.error("Error Editando el Usuario");
+    }
+  }, [mutationError]);
+
+  if (mutationLoading) return <div>Cargando...</div>;
 
   return (
     <div className="flew flex-col w-full h-full items-center justify-center p-6">
@@ -12,7 +41,12 @@ const CrearCliente = () => {
           Regresar
         </i>
       </Link>
-      <form className="flex flex-col items-center justify-center">
+      <form
+       className="flex flex-col items-center justify-center"
+       onSubmit={submitForm}
+       onChange={updateFormData}
+       ref={form}
+       >
         <div className=" container mx-auto bg-white  mt-10 rounded px-4">
           <div className="xl:w-full border-b border-gray-300 py-5">
             <div className="flex w-11/12 mx-auto xl:w-full xl:mx-0 items-center">   
@@ -37,7 +71,7 @@ const CrearCliente = () => {
             <div className="container mx-auto grid grid-cols-2">  
               <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
                 <label
-                  htmlFor="FirstName"
+                  htmlFor="nombre"
                   className="pb-2 text-sm font-bold text-gray-800 "
                 >
                   Nombre <span className="text-red-600">*</span>
@@ -45,14 +79,13 @@ const CrearCliente = () => {
                 <input
                   type="text"
                   name="nombre"
-                  defaultValue={""}
                   required={true}
                   className="border border-gray-300  pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
                 />
               </div>
               <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
                 <label
-                  htmlFor="LastName"
+                  htmlFor="apellido"
                   className="pb-2 text-sm font-bold text-gray-800 "
                 >
                   Apellido <span className="text-red-600">*</span>
@@ -60,14 +93,13 @@ const CrearCliente = () => {
                 <input
                   type="text"
                   name="apellido"
-                  defaultValue={""}
                   required={true}
                   className="border border-gray-300 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
                 />
               </div>
               <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
                 <label
-                  htmlFor="Email"
+                  htmlFor="email"
                   className="pb-2 text-sm font-bold text-gray-800 "
                 >
                   Email <span className="text-red-600">*</span>
@@ -94,7 +126,6 @@ const CrearCliente = () => {
                   <input
                     type="email"
                     name="email"
-                    defaultValue={""}
                     required={true}
                     className="pl-3 py-3 w-full text-sm focus:outline-none placeholder-gray-500 rounded bg-transparent text-gray-500 "
                   />
@@ -102,7 +133,7 @@ const CrearCliente = () => {
               </div>
               <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
                 <label
-                  htmlFor="FirstName"
+                  htmlFor="indentificacion"
                   className="pb-2 text-sm font-bold text-gray-800 "
                 >
                   Identificacion <span className="text-red-600">*</span>
@@ -110,29 +141,27 @@ const CrearCliente = () => {
                 <input
                   type="text"
                   name="identificacion"
-                  defaultValue={""}
                   required={true}
                   className="border border-gray-300 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
                 />
               </div>
               <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
                 <label
-                  htmlFor="FirstName"
+                  htmlFor="departamento"
                   className="pb-2 text-sm font-bold text-gray-800"
                 >
                   Departamento <span className="text-red-600">*</span>
                 </label>
                 <input
                   type="text"
-                  name="Departamento"
-                  defaultValue={""}
+                  name="departamento"
                   required={true}
                   className="border border-gray-300  pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
                 />
               </div>
               <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
                 <label
-                  htmlFor="FirstName"
+                  htmlFor="ciudad"
                   className="pb-2 text-sm font-bold text-gray-800"
                 >
                   Ciudad <span className="text-red-600">*</span>
@@ -140,14 +169,13 @@ const CrearCliente = () => {
                 <input
                   type="text"
                   name="ciudad"
-                  defaultValue={""}
                   required={true}
                   className="border border-gray-300  pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
                 />
               </div>
               <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
                 <label
-                  htmlFor="FirstName"
+                  htmlFor="telefono"
                   className="pb-2 text-sm font-bold text-gray-800"
                 >
                   Telefono <span className="text-red-600">*</span>
@@ -155,18 +183,22 @@ const CrearCliente = () => {
                 <input
                   type="text"
                   name="telefono"
-                  defaultValue={""}
                   required={true}
                   className="border border-gray-300  pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
                 />
               </div>
             </div>
+            <ButtonLoading
+            disabled={Object.keys(formData).length === 0}
+            loading={false}
+            text="Nuevo Cliente"
+          />
           </div>
         </div>
       </form>
       <button className="BtnRegresar mx-2 my-2 bg-gray-600 transition duration-150 ease-in-out hover:bg-gray-400 rounded text-white px-6 py-2 text-xs">
         <Link to="/clientes">
-          <i>Regresar</i>
+          <i className="p-9"> Regresar </i>
         </Link>
       </button>
     </div>
