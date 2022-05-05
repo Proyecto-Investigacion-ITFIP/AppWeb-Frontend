@@ -20,8 +20,8 @@ import PostRegistro from "./pages/postRegistro";
 
 
 const httpLink = createHttpLink({
-  // uri:'https://maestro-producto-back.herokuapp.com/graphql'
-  uri: 'http://localhost:4000/graphql',
+  uri:'https://back-app-main.herokuapp.com/graphql' 
+  // uri: 'http://localhost:4000/graphql',
 });
 
 //cada vez que Graphql haga un request al back:
@@ -86,7 +86,7 @@ function App() {
               <Route path="/auth/index" element={<Index />} />
               <Route path="/auth/iniciar-sesion" element={<IniciarSesion />} />
               <Route path="/auth/registro" element={<Registro />} />
-              <Route path="/registro-completado" element={<PostRegistro /> } />
+              <Route path="/auth/registrocompletado" element={<PostRegistro /> } />
             </Routes>
             <Routes>
               <Route path="/" element={<SidebarLayout />}>
