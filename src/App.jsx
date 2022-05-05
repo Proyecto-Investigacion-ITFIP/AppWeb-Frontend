@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Index from './pages/index';
+import Index from './pages/Index';
 import Product from './pages/product'
 import Dashboard from "./pages/dashboard";
 import SidebarLayout from './layouts/sidebarLayout';
