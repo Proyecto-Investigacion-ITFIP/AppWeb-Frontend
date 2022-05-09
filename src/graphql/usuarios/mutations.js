@@ -31,4 +31,12 @@ mutation EditarUsuario (
 }
 `;
 
-export { Editar_Usuario };
+const ELIMINAR_USUARIO = gql `
+mutation EliminarUsuario($id: String) {
+  eliminarUsuario(_id: $id) {
+    _id
+  }
+}
+`;
+
+export { Editar_Usuario, ELIMINAR_USUARIO };

@@ -1,5 +1,6 @@
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { GET_USUARIOS } from '../../graphql/usuarios/queries';
+import { ELIMINAR_USUARIO } from '../../graphql/usuarios/mutations'
 import { useEffect, Fragment } from 'react';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
@@ -7,7 +8,21 @@ import { Enum_Rol, Enum_EstadoUsuario } from '../../utils/enums';
 import PrivateRoute from '../../components/PrivateRoute';
 
 const IndexUsuarios = () => {
-  const { loading, error, data } = useQuery(GET_USUARIOS);
+  const { loading, error, data, refetch } = useQuery(GET_USUARIOS);
+  const [EliminarUsuario, { data: dataMutation, loading: loadingMutation, error: errorMutation }] =
+      useMutation( ELIMINAR_USUARIO );
+
+
+  useEffect(() =>{
+    console.log('eliminar usr ;' , dataMutation) 
+  }, {EliminarUsuario})
+  
+  const ejecutaEliminar = () => {
+    EliminarUsuario({
+      variables: { _id: $_id },
+    });
+    refetch()
+  };
 
   // useEffect(() => {
   //   console.log("data servidor", data)
@@ -52,8 +67,9 @@ const IndexUsuarios = () => {
                     <td>{Enum_EstadoUsuario[u.estado]}</td>
                     <td>
                       <Link to={`/usuarios/editar/${u._id}`}>
-                        <i className="fas fa-edit text-sky-900 hover:text-sky-400 cursor-pointer" />
+                        <i className="fas fa-edit text-sky-900 hover:text-sky-400 cursor-pointer p-1" />
                       </Link>
+                        <i onClick={ejecutaEliminar} className="fas fa-trash-alt text-red-900 hover:text-red-400 cursor-pointer p-1" />
                     </td>
                   </tr>
                 ))}
