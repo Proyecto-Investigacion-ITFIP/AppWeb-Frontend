@@ -17,7 +17,7 @@ import Clientes from "./pages/cliente/Cliente";
 import CrearCliente from "./pages/cliente/crearCliente"
 import EditarClientes from "./pages/cliente/editarCliente"
 import PostRegistro from "./pages/postRegistro";
-import Factura from "./pages/factura/Factura";
+import Factura from "./pages/factura/factura";
 
 
 const httpLink = createHttpLink({
