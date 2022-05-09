@@ -6,10 +6,11 @@ import { Link } from 'react-router-dom';
 
 
 const Clientes = () => {
-  const { loading, error, data } = useQuery(GET_CLIENTES);
+  const { loading, error, data, refetch } = useQuery(GET_CLIENTES);
 
   useEffect(() => {
-    console.log("data servidor", data)
+    // console.log("data servidor", data)
+    refetch();
   }, [data]);
 
   useEffect(() => {
@@ -58,9 +59,14 @@ const Clientes = () => {
                 <td>{u.ciudad}</td>
                 <td>
                   <Link to={`/clientes/editar/${u._id}`}>
-                    <i className="fas fa-edit text-sky-900 hover:text-sky-400 cursor-pointer" />
+                    <i className="fas fa-edit text-sky-900 hover:text-sky-400 cursor-pointer p-1" />
                   </Link>
+                  <Link to={`/clientes/editar/${u._id}`}>
+                  <i className="fas fa-trash-alt text-red-900 hover:text-red-400 cursor-pointer p-1" />
+                </Link>
+
                 </td>
+                
               </tr>
             );
           })

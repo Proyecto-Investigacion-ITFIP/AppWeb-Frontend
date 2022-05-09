@@ -13,11 +13,11 @@ import { AuthContext } from "./context/authContext";
 import { UserContext } from "./context/userContext";
 import { useState, useEffect } from "react";
 import jwt_decode  from "jwt-decode";
-import Clientes from "./pages/cliente/cliente";
+import Clientes from "./pages/cliente/Cliente";
 import CrearCliente from "./pages/cliente/crearCliente"
 import EditarClientes from "./pages/cliente/editarCliente"
 import PostRegistro from "./pages/postRegistro";
-import Factura from "./pages/factura/factura";
+import Factura from "./pages/factura/Factura";
 
 
 const httpLink = createHttpLink({
