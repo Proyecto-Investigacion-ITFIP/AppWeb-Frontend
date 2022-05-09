@@ -21,8 +21,8 @@ import Factura from "./pages/factura/factura";
 
 
 const httpLink = createHttpLink({
-  // uri:'https://back-app-main.herokuapp.com/graphql' 
-  uri: 'http://localhost:4000/graphql',
+  uri:'https://back-app-main.herokuapp.com/graphql' 
+  // uri: 'http://localhost:4000/graphql',
 });
 
 //cada vez que Graphql haga un request al back:
