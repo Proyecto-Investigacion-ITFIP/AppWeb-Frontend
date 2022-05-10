@@ -28,7 +28,7 @@ const CrearCliente = () => {
 
   useEffect(() => {
     if (mutationError) {
-      toast.error("Error Editando el Usuario");
+      toast.error("Error Editando el Cliente");
     }
   }, [mutationError]);
 

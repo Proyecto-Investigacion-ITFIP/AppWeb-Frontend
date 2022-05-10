@@ -11,5 +11,11 @@ const Enum_EstadoUsuario = {
 };
 
 
+const Enum_EstadoProducto= {
+  DISPONIBLE: 'Disponible',
+  AGOTADO: 'Agotado',
+};
 
-export { Enum_Rol, Enum_EstadoUsuario }
+
+
+export { Enum_Rol, Enum_EstadoUsuario, Enum_EstadoProducto }

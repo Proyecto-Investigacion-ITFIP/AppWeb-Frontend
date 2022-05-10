@@ -1,6 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Index from './pages/Index';
-import Product from './pages/product'
 import Dashboard from "./pages/dashboard";
 import SidebarLayout from './layouts/sidebarLayout';
 import IndexUsuarios from './pages/usuarios/Usuarios.jsx'
@@ -18,11 +17,13 @@ import CrearCliente from "./pages/cliente/crearCliente"
 import EditarClientes from "./pages/cliente/editarCliente"
 import PostRegistro from "./pages/postRegistro";
 import Factura from "./pages/factura/factura";
+import Productos from "./pages/producto/Producto";
+import CrearProducto from "./pages/producto/crearProducto";
 
 
 const httpLink = createHttpLink({
-  uri:'https://back-app-main.herokuapp.com/graphql' 
-  // uri: 'http://localhost:4000/graphql',
+  // uri:'https://back-app-main.herokuapp.com/graphql' 
+  uri: 'http://localhost:4000/graphql',
 });
 
 //cada vez que Graphql haga un request al back:
@@ -97,7 +98,8 @@ function App() {
                 <Route path="/clientes" element={<Clientes />} />
                 <Route path="/clientes/editar/:_id" element={<EditarClientes />} />
                 <Route path="/nuevo-cliente" element={<CrearCliente />} />
-                <Route path="/segurity" element={<Product />} />
+                <Route path="/productos" element={<Productos />} />
+                <Route path="/nuevo-productos" element={<CrearProducto />} />
                 <Route path="/facutra" element={<Factura />} />
               </Route>
             </Routes>

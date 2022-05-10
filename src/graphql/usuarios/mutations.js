@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client/core";
+import { gql } from "@apollo/client";
 
 const Editar_Usuario = gql `
 mutation EditarUsuario (

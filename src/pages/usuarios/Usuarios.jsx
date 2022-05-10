@@ -12,14 +12,15 @@ const IndexUsuarios = () => {
   const [EliminarUsuario, { data: dataMutation, loading: loadingMutation, error: errorMutation }] =
       useMutation( ELIMINAR_USUARIO );
 
+      console.log("eliminar",dataMutation)
 
   useEffect(() =>{
     console.log('eliminar usr ;' , dataMutation) 
   }, {EliminarUsuario})
   
-  const ejecutaEliminar = () => {
+  const ejecutaEliminar = (id) => {
     EliminarUsuario({
-      variables: { _id: $_id },
+      variables: { _id: id },
     });
     refetch()
   };
