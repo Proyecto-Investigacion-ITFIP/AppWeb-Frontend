@@ -19,6 +19,7 @@ import PostRegistro from "./pages/postRegistro";
 import Factura from "./pages/factura/factura";
 import Productos from "./pages/producto/Producto";
 import CrearProducto from "./pages/producto/crearProducto";
+import EditarProducto from "./pages/producto/editarProducto";
 
 
 const httpLink = createHttpLink({
@@ -88,7 +89,7 @@ function App() {
               <Route path="/auth/index" element={<Index />} />
               <Route path="/auth/iniciar-sesion" element={<IniciarSesion />} />
               <Route path="/auth/registro" element={<Registro />} />
-              <Route path="/auth/registrocompletado" element={<PostRegistro /> } />
+              <Route path="/auth/registro/completado" element={<PostRegistro /> } />
             </Routes>
             <Routes>
               <Route path="/" element={<SidebarLayout />}>
@@ -99,6 +100,7 @@ function App() {
                 <Route path="/clientes/editar/:_id" element={<EditarClientes />} />
                 <Route path="/nuevo-cliente" element={<CrearCliente />} />
                 <Route path="/productos" element={<Productos />} />
+                <Route path="/productos/editar/:_id" element={<EditarProducto />} />
                 <Route path="/nuevo-productos" element={<CrearProducto />} />
                 <Route path="/facutra" element={<Factura />} />
               </Route>

@@ -33,7 +33,7 @@ mutation CrearProducto(
 
 const Editar_Producto = gql `
 mutation EditarProducto(
-    $id: String! 
+    $_id: String! 
     $nombreProducto: String! 
     $descripcion: String!
     $marca: String!
@@ -43,7 +43,7 @@ mutation EditarProducto(
     $estadoProducto: Enum_EstadoProducto
     ) {
     editarProducto(
-        _id: $id
+        _id: $_id
         nombreProducto: $nombreProducto 
         descripcion: $descripcion
         marca: $marca
@@ -64,4 +64,25 @@ mutation EditarProducto(
   }
 `;
 
-export { Crear_Producto, Editar_Producto }
+const Eliminar_Producto = gql `
+mutation Mutation(
+  $_id: String, 
+  $nombreProducto: String
+  ) {
+  eliminarProducto(
+    _id: $_id
+    nombreProducto: $nombreProducto
+    ) {
+    _id
+    nombreProducto
+    descripcion
+    marca
+    modelo
+    precioUnidad
+    cantidadTotalExistente
+    estadoProducto
+  }
+}
+`
+
+export { Crear_Producto, Editar_Producto, Eliminar_Producto }

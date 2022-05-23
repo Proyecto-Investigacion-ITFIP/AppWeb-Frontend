@@ -27,7 +27,7 @@ const Registro = () => {
     if(mutationData){
       if(mutationData.registro.token){
         setToken(mutationData.registro.token); 
-        navigate('/auth/registrocompletado');
+        navigate('/auth/registro/completado');
       }
     }
   }, [mutationData, setToken, navigate])

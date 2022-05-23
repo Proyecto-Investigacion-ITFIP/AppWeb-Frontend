@@ -64,4 +64,25 @@ mutation editarCliente(
 }
 `;
 
-export { Crear_Cliete, Editar_Cliete };
+const ELIMNAR_CLIENTE = gql `
+mutation eliminarCliente(
+  $_id: String
+  $email: String
+) {
+  eliminarCliente(
+    _id: $_id
+    email: $email
+    ) {
+    _id
+    nombre
+    apellido
+    email
+    identificacion
+    telefono
+    departamento
+    ciudad
+  }
+}
+`;
+
+export { Crear_Cliete, Editar_Cliete, ELIMNAR_CLIENTE };

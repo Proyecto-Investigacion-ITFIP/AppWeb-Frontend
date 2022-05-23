@@ -32,8 +32,8 @@ mutation EditarUsuario (
 `;
 
 const ELIMINAR_USUARIO = gql `
-mutation EliminarUsuario($id: String) {
-  eliminarUsuario(_id: $id) {
+mutation EliminarUsuario($_id: String) {
+  eliminarUsuario(_id: $_id) {
     _id
   }
 }

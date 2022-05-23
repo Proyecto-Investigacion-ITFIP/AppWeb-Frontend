@@ -9,25 +9,23 @@ import PrivateRoute from '../../components/PrivateRoute';
 
 const IndexUsuarios = () => {
   const { loading, error, data, refetch } = useQuery(GET_USUARIOS);
-  const [EliminarUsuario, { data: dataMutation, loading: loadingMutation, error: errorMutation }] =
-      useMutation( ELIMINAR_USUARIO );
+  const [
+    EliminarUsuario,
+    { data: dataMutation, loading: loadingMutation, error: errorMutation },
+  ] = useMutation(ELIMINAR_USUARIO);
 
-      console.log("eliminar",dataMutation)
+  useEffect(() => {
+    if (dataMutation) {
+      toast.success("Usuario eliminado satisfactoriamente");
+    }
+  }, [dataMutation]);
 
-  useEffect(() =>{
-    console.log('eliminar usr ;' , dataMutation) 
-  }, {EliminarUsuario})
-  
-  const ejecutaEliminar = (id) => {
+  const ejecutaEliminar = (iden) => {
     EliminarUsuario({
-      variables: { _id: id },
+      variables: { _id: iden },
     });
-    refetch()
+    refetch();
   };
-
-  // useEffect(() => {
-  //   console.log("data servidor", data)
-  // }, [data]);
 
   useEffect(() => {
     if (error) {
@@ -38,7 +36,7 @@ const IndexUsuarios = () => {
   if (loading) return <div>Cargando...</div>;
 
   return (
-    <PrivateRoute roleList={['ADMINISTRADOR']}> 
+    <PrivateRoute roleList={["ADMINISTRADOR"]}>
       <div>
         DATOS USUAIROS:
         <table className="tabla">
@@ -70,7 +68,10 @@ const IndexUsuarios = () => {
                       <Link to={`/usuarios/editar/${u._id}`}>
                         <i className="fas fa-edit text-sky-900 hover:text-sky-400 cursor-pointer p-1" />
                       </Link>
-                        <i onClick={ejecutaEliminar} className="fas fa-trash-alt text-red-900 hover:text-red-400 cursor-pointer p-1" />
+                      <i
+                        className="fas fa-trash-alt text-red-900 hover:text-red-400 cursor-pointer p-1"
+                        onClick={() => ejecutaEliminar(u._id)}
+                      />
                     </td>
                   </tr>
                 ))}
@@ -81,7 +82,7 @@ const IndexUsuarios = () => {
           </tbody>
         </table>
       </div>
-     </PrivateRoute>
+    </PrivateRoute>
   );
 };
 

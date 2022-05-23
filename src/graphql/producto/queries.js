@@ -16,8 +16,8 @@ query QueryProductos {
 `;
 
 const GET_PRODUCTO = gql `
-query Producto($id: String!) {
-  Producto(_id: $id) {
+query Producto($_id: String!) {
+  Producto(_id: $_id) {
     _id
     nombreProducto
     descripcion

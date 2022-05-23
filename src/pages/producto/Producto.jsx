@@ -1,16 +1,33 @@
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { GET_PRODUCTOS } from "../../graphql/producto/queries";
+import { Eliminar_Producto } from "../../graphql/producto/mutations";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Productos = () => {
   const { loading, error, data, refetch } = useQuery(GET_PRODUCTOS);
-  // const [EliminarProducto, { data: dataMutation, loading: loadingMutation, error: errorMutation }] =
-  //     useMutation( ELIMINAR_Producto );
+  const [
+    EliminarProducto,
+    {
+      data: dataMutationEliminar,
+      loading: loadingMutationEliminar,
+      error: errorMutationEliminar,
+    },
+  ] = useMutation(Eliminar_Producto);
 
-  useEffect(() => { 
-    //   console.log("data servidor", data)
+  useEffect(() => {
+    if (dataMutationEliminar) {
+      toast.success("Producto eliminado satisfactoriamente");
+    }
+  }, [dataMutationEliminar]);
+
+  const ejecutarEliminacion = (iden) => {
+    EliminarProducto({ variables: { nombreProducto: iden } });
+    refetch();
+  };
+
+  useEffect(() => {
     refetch();
   }, [data]);
 
@@ -56,12 +73,15 @@ const Productos = () => {
                   <td>{u.cantidadTotalExistente}</td>
                   <td className="text-sky-800">{u.estadoProducto}</td>
                   <td>
-                    <Link to={`/clientes/editar/${u._id}`}>
+                    <Link to={`/productos/editar/${u._id}`}>
                       <i className="fas fa-edit text-sky-900 hover:text-sky-400 cursor-pointer p-1" />
                     </Link>
-                    <Link to={`/clientes/editar/${u._id}`}>
-                      <i className="fas fa-trash-alt text-red-900 hover:text-red-400 cursor-pointer p-1" />
-                    </Link>
+                    <button type="button">
+                      <i
+                        className="fas fa-trash-alt text-red-900 hover:text-red-400 cursor-pointer p-1"
+                        onClick={() => ejecutarEliminacion(u.nombreProducto)}
+                      />
+                    </button>
                   </td>
                 </tr>
               );
