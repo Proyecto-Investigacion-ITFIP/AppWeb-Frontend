@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import { Enum_Rol, Enum_EstadoUsuario } from '../../utils/enums';
 import PrivateRoute from '../../components/PrivateRoute';
+import Tooltip from '@mui/material/Tooltip';
 
 const IndexUsuarios = () => {
   const { loading, error, data, refetch } = useQuery(GET_USUARIOS);
@@ -49,7 +50,7 @@ const IndexUsuarios = () => {
               <th>telefono</th>
               <th>Rol</th>
               <th>Estado</th>
-              <th>Editar</th>
+              <th>Accion</th>
             </tr>
           </thead>
           <tbody>
@@ -65,13 +66,17 @@ const IndexUsuarios = () => {
                     <td>{Enum_Rol[u.rol]}</td>
                     <td>{Enum_EstadoUsuario[u.estado]}</td>
                     <td>
+                    <Tooltip title='Editar Usuario' arrow placement='right'>
                       <Link to={`/usuarios/editar/${u._id}`}>
                         <i className="fas fa-edit text-sky-900 hover:text-sky-400 cursor-pointer p-1" />
                       </Link>
+                    </Tooltip>
+                    <Tooltip title='Eliminar Usuario' arrow placement='right'>
                       <i
                         className="fas fa-trash-alt text-red-900 hover:text-red-400 cursor-pointer p-1"
                         onClick={() => ejecutaEliminar(u._id)}
                       />
+                    </Tooltip>
                     </td>
                   </tr>
                 ))}
