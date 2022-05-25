@@ -20,7 +20,6 @@ import Factura from "./pages/factura/factura";
 import Productos from "./pages/producto/Producto";
 import CrearProducto from "./pages/producto/crearProducto";
 import EditarProducto from "./pages/producto/editarProducto";
-import AlertDialog from "./pages/dialog";
 
 
 const httpLink = createHttpLink({
@@ -91,7 +90,6 @@ function App() {
               <Route path="/auth/iniciar-sesion" element={<IniciarSesion />} />
               <Route path="/auth/registro" element={<Registro />} />
               <Route path="/auth/registro/completado" element={<PostRegistro /> } />
-              <Route path="/auth/dialog" element={<AlertDialog /> } />
             </Routes>
             <Routes>
               <Route path="/" element={<SidebarLayout />}>
