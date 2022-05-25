@@ -48,7 +48,7 @@ const Clientes = () => {
   };
 
   useEffect(() => {
-    // console.log("data servidor", data)
+    console.log("data servidor", data)
     refetch();
   }, [data]);
 
@@ -107,7 +107,7 @@ const Clientes = () => {
                       />
                     </Tooltip>
                     <Dialog open={open} onClose={handleClose}>
-                      <div className="p-8 flex flex-col">
+                      <div className="p-2 flex flex-col">
                         <DialogTitle id="alert-dialog-title">
                           {"¿Está seguro de querer eliminar este cliente?"}
                         </DialogTitle>
