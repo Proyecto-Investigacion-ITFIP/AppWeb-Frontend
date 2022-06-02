@@ -40,7 +40,7 @@ const Factura = () => {
                 htmlFor="FirstName"
                 className="pb-2 text-sm font-bold text-gray-800 "
               >
-                Nombre 
+                Agregar Cliente 
               </label>
               <input
                 type="text"
@@ -55,7 +55,7 @@ const Factura = () => {
                 htmlFor="LastName"
                 className="pb-2 text-sm font-bold text-gray-800 "
               >
-                Apellido
+              Agregar producto 
               </label>
               <input
                 type="text"
@@ -67,45 +67,10 @@ const Factura = () => {
             </div>
             <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
               <label
-                htmlFor="Email"
-                className="pb-2 text-sm font-bold text-gray-800 "
-              >
-                Email
-              </label>
-              <div className="border border-blue-400 shadow-sm rounded flex">
-                <div className="px-4 py-3  flex items-center border-r border-green-400">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="icon icon-tabler icon-tabler-mail"
-                    width={20}
-                    height={20}
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path stroke="none" d="M0 0h24v24H0z" />
-                    <rect x={3} y={5} width={18} height={14} rx={2} />
-                    <polyline points="3 7 12 13 21 7" />
-                  </svg>
-                </div>
-                <input
-                  type="email"
-                  name="email"
-                  defaultValue={""}
-                  required={true}
-                  className="pl-3 py-3 w-full text-sm focus:outline-none placeholder-gray-500 rounded bg-transparent text-gray-500 "
-                />
-              </div>
-            </div>
-            <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-              <label
                 htmlFor="FirstName"
                 className="pb-2 text-sm font-bold text-gray-800 "
               >
-                Identificacion
+                Cantidad
               </label>
               <input
                 type="text"
@@ -121,7 +86,7 @@ const Factura = () => {
                 htmlFor="FirstName"
                 className="pb-2 text-sm font-bold text-gray-800"
               >
-                Telefono
+                Total Productos
               </label>
               <input
                 type="text"
@@ -130,40 +95,33 @@ const Factura = () => {
                 required={true}
                 className="border border-gray-300  pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
               />
-            </div>
-            <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-              <label
-                htmlFor="FirstName"
-                className="pb-2 text-sm font-bold text-gray-800"
-              >
-              Departamento
-              </label>
-              <input
-                type="text"
-                name="departamento"
-                defaultValue={""}
-                required={true}
-                className="border border-gray-300  pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
-              />
-            </div>
-            <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
-              <label
-                htmlFor="FirstName"
-                className="pb-2 text-sm font-bold text-gray-800"
-              >
-              Ciudad
-              </label>
-              <input
-                type="text"
-                name="ciudad"
-                defaultValue={""}
-                required={true}
-                className="border border-gray-300  pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 "
-              />
-            </div>
+            </div><div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
+            <label
+              htmlFor="FirstName"
+              className="pb-2 text-sm font-bold text-gray-800"
+            >
+            Descuento:
+            </label>
             
           </div>
-          
+            <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
+              <label
+                htmlFor="FirstName"
+                className="pb-2 text-sm font-bold text-gray-800"
+              >
+              Subtotal: 
+              </label>
+              
+            </div>
+            <div className="lg:w-1/2 md:w-1/2 flex flex-col mb-6">
+              <label
+                htmlFor="FirstName"
+                className="pb-2 text-sm font-bold text-gray-800"
+              >
+              Total:
+              </label>
+            </div>
+          </div>
         </div>
       </div>
     </form>

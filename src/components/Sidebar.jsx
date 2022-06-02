@@ -187,7 +187,7 @@ const Sidebar = () => {
               />
             </svg>
             <Link to="" className="focus:text-indigo-400">
-              <p className="text-base leading-4">Dashboard</p>
+              <p className="text-base leading-4">Inicio</p>
             </Link>
           </button>
           <PrivateComponent roleList={["ADMINISTRADOR"]}>
