@@ -8,6 +8,7 @@ import { setContext } from '@apollo/client/link/context';
 import EditarUsuarios from "./pages/usuarios/editarUsuarios";
 import IniciarSesion from "./pages/autentificacion/iniciar-sesion";
 import Registro from "./pages/autentificacion/registro";
+import Nosotros from "./pages/Nosotros";
 import { AuthContext } from "./context/authContext";
 import { UserContext } from "./context/userContext";
 import { useState, useEffect } from "react";
@@ -87,6 +88,7 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/auth/index" element={<Index />} />
+              <Route path="/auth/nosotros" element={<Nosotros />} />
               <Route path="/auth/iniciar-sesion" element={<IniciarSesion />} />
               <Route path="/auth/registro" element={<Registro />} />
               <Route path="/auth/registro/completado" element={<PostRegistro /> } />

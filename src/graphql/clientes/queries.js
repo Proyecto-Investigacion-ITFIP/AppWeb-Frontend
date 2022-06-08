@@ -30,4 +30,20 @@ query Cliente($_id: String!) {
 }
 `;
 
-export { GET_CLIENTES, GET_CLIENTE };
+
+const  GET_FIND_CLIENTE = gql `
+query BuscarCliente($nombre: String) {
+  BuscarCliente(nombre: $nombre) {
+    _id
+    nombre
+    apellido
+    email
+    identificacion
+    telefono
+    departamento
+    ciudad
+  }
+}
+`;
+
+export { GET_CLIENTES, GET_CLIENTE, GET_FIND_CLIENTE};

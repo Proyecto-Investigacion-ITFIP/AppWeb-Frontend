@@ -17,6 +17,20 @@ body {
 }
 /* Fin-index */
 
+/* barra de Busqueda */
+#Buscador {
+  background: url(https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-19-32.png) no-repeat 0px 5px;
+  background-size: 34px;
+  background-position-x: -5px;
+  background-position-y: 10px;
+  width: 500px;
+  border: transparent;
+  border-bottom: solid 1px rgb(13, 0, 113);
+  padding: 10px 10px 10px 30px;
+  outline: none;
+}
+/* Fin Barra busqueda */
+
 /* tabla-pages */
 .tabla{
   width: 100%;
@@ -132,3 +146,47 @@ table tr:nth-child(even) {
 /* estilo de la pagina bienvenidos */
 
 /* FIN estilo de la pagina bienvenidos */
+
+
+
+/* estilo de la pagina NOSOTROS */
+.nosotros{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+h2.abaut-title{
+  text-align:center;
+  font-size: 2.5rem;
+}
+h4.abaut-subtitle{
+  text-align:center;
+  font-size: 1.5rem;
+  max-width: 75ch;
+}
+span.abut-contener{
+  text-align: center;
+}
+.abut-contener{
+  text-align: justify;
+  font-family: 'Muli', sans-serif;
+  margin: 30px 170px;
+  max-width: 75ch;
+}
+.contener-all-team{
+  display: flex;
+  justify-content: space-around;
+}
+.conter-name{
+  font-size: 1.5rem;
+}
+.abaut-team{
+  display: inline-block;
+  margin: 20px 76px;
+}
+div.footer1{
+  display: flex;
+  padding: 0px;
+}
+/* FIN pagina NOSOTROS */

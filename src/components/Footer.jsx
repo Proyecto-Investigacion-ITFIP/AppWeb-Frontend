@@ -1,5 +1,5 @@
 import semillero from '../img/semillero.png'
-import itfip from '../img/itfip.png'
+import itfip from '../img/ITFIP.png'
 import disruptivo from '../img/disruptivo.png'
 import { Link } from 'react-router-dom';
 

@@ -1,5 +1,5 @@
-import { useQuery, useMutation} from '@apollo/client';
-import { GET_CLIENTES } from '../../graphql/clientes/queries';
+import { useQuery, useMutation, useLazyQuery } from '@apollo/client';
+import { GET_CLIENTES, GET_FIND_CLIENTE} from '../../graphql/clientes/queries';
 import { ELIMNAR_CLIENTE } from '../../graphql/clientes/mutations';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -15,7 +15,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 const Example = ({ type, color }) => (
   <ReactLoading type={type} color={color} height={"20%"} width={"20%"} />
 );
-  
+
+// const [ getCliente, resultado] = useLazyQuery(GET_FIND_CLIENTE)
 const Clientes = () => {
   const { loading, error, data, refetch } = useQuery(GET_CLIENTES);
   const [
@@ -62,11 +63,12 @@ const Clientes = () => {
 
   return (
     <div>
-      <div className="flex justify-end mr-9 mt-6">
+    <div className='flex  justify-around m-4 p-2'>
+      <input type="search" placeholder="Buscar cliente" id="Buscador" />
         <button className="mx-2 my-2 bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-3 text-xs">
           <Link to="/nuevo-cliente">Nuevo Cliente</Link>
         </button>
-      </div>
+    </div>
 
       <h3>DATOS CLIENTES:</h3>
       <table className="tabla">
